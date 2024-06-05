@@ -1,0 +1,39 @@
+PARSER_BEGIN(MyLexer)
+
+package com.yc.util;
+
+import java.util.*;
+
+public class MyLexer {
+}
+
+
+PARSER_END(MyLexer)
+
+SKIP :
+{
+    " " | "\t" | "\n" | "\r"
+}
+
+TOKEN :
+{
+    < A01: "cadeia" >
+|   < A02: "caracter" >
+|   < A03: "declaracoes" >
+|   < A04: "enquanto" >
+|   < B01: "%" >
+|   < B02: "(" >
+|   < B03: ")" >
+}
+
+void Input() :
+{}
+{
+    ( Token() )* <EOF>
+}
+
+void Token() :
+{}
+{
+    <A01> | <A02> | <A03> | <A04> | <B01> | <B02> | <B03>
+}
