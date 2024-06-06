@@ -1,14 +1,11 @@
-PARSER_BEGIN(MyLexer)
+PARSER_BEGIN(Parser)
 
-package com.yc.util;
+package com.yc.parser;
 
-import java.util.*;
-
-public class MyLexer {
+public class Parser {
 }
 
-
-PARSER_END(MyLexer)
+PARSER_END(Parser)
 
 SKIP :
 {
@@ -24,6 +21,7 @@ TOKEN :
 |   < B01: "%" >
 |   < B02: "(" >
 |   < B03: ")" >
+|  < digito: ["0"-"9"] >
 }
 
 void Input() :
@@ -35,5 +33,5 @@ void Input() :
 void Token() :
 {}
 {
-    <A01> | <A02> | <A03> | <A04> | <B01> | <B02> | <B03>
+    <A01> | <A02> | <A03> | <A04> | <B01> | <B02> | <B03> | <digito>
 }
