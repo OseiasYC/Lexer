@@ -21,7 +21,44 @@ TOKEN :
 |   < B01: "%" >
 |   < B02: "(" >
 |   < B03: ")" >
-|  < digito: ["0"-"9"] >
+|   < digito: ["0"-"9"] >
+|   < C01: "\"" (<miolo_cadeia>)* "\"" > // consCadeia: anything between double quotes
+|   < C02: "'" (<letra>)* "'" > // consCaracter: anything between single quotes
+|   < C03: <digitos_decimal> > // consInteiro: sequence of digits
+|   < C04: <digitos_decimal> "." <digitos_decimais> | <digitos_decimais> "." <digitos_decimais> <parte_exponencial> > // consReal
+|   < C05: <letra> (<nomFuncao>)* > // nomFuncao: letter followed by letters or digits
+|   < C06: <letra> (<nomPrograma>)* > // nomPrograma: same as nomFuncao
+|   < C07: (<letra> | "_") (<variavel>)* > // variavel
+}
+
+<miolo_cadeia> :
+{
+    <letra> | <branco> | <digito> | ["!"-"$", "&"-"~"]
+}
+
+<parte_exponencial> :
+{
+    ("e" | "E") ("+" | "-")? <digitos_decimais>
+}
+
+<digitos_decimal> :
+{
+    <digito> (<digito>)*
+}
+
+<letra> : 
+{
+    ["a"-"z", "A"-"Z"]
+}
+
+<digito> : 
+{
+    ["0"-"9"]
+}
+
+<branco> : 
+{
+    " " | "\t" | "\n" | "\r"
 }
 
 void Input() :
@@ -33,5 +70,8 @@ void Input() :
 void Token() :
 {}
 {
-    <A01> | <A02> | <A03> | <A04> | <B01> | <B02> | <B03> | <digito>
+    <A01> | <A02> | <A03> | <A04> 
+  | <B01> | <B02> | <B03>
+  | <C01> | <C02> | <C03> | <C04>
+  | <C05> | <C06> | <C07>
 }
