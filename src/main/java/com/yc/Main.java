@@ -7,20 +7,27 @@ import com.yc.parser.ParseException;
 import com.yc.parser.Parser;
 import com.yc.parser.ParserConstants;
 import com.yc.parser.Token;
+import com.yc.utils.TUI;
 
 public class Main {
     public static void main(String[] args) throws ParseException, NoSuchFieldException {
-        String codigo = "logico < <= != ?";
+        TUI tui = new TUI();
+        tui.run();
+    }
+    
+    public static void test() {
+        // String codigo = "logico < <= != ?";
 
-        Parser parser = new Parser(new StringReader(codigo));
+        // Parser parser = new Parser(new StringReader(codigo));
 
-        Token token = parser.getNextToken();
+        // Token token = parser.getNextToken();
 
-        System.out.println("Código analisado: " + codigo + "\n");
-        while (token.kind != 0) {
-            System.out.println("Código: " + getTableCode(token.kind) + " | Lexema: " + token.image + " | Linha: " + token.beginLine);
-            token = parser.getNextToken();
-        }
+        // System.out.println("Código analisado: " + codigo + "\n");
+        // while (token.kind != 0) {
+        //     System.out.println("Código: " + getTableCode(token.kind) + " | Lexema: " + token.image + " | Linha: "
+        //             + token.beginLine);
+        //     token = parser.getNextToken();
+        // }
     }
 
     public static String getTableCode(int kind) throws NoSuchFieldException, SecurityException {
