@@ -19,13 +19,95 @@ public interface ParserConstants {
   /** RegularExpression Id. */
   int A04 = 8;
   /** RegularExpression Id. */
-  int B01 = 9;
+  int A05 = 9;
   /** RegularExpression Id. */
-  int B02 = 10;
+  int A06 = 10;
   /** RegularExpression Id. */
-  int B03 = 11;
+  int A07 = 11;
   /** RegularExpression Id. */
-  int digito = 12;
+  int A08 = 12;
+  /** RegularExpression Id. */
+  int A09 = 13;
+  /** RegularExpression Id. */
+  int A10 = 14;
+  /** RegularExpression Id. */
+  int A11 = 15;
+  /** RegularExpression Id. */
+  int A12 = 16;
+  /** RegularExpression Id. */
+  int A13 = 17;
+  /** RegularExpression Id. */
+  int A14 = 18;
+  /** RegularExpression Id. */
+  int A15 = 19;
+  /** RegularExpression Id. */
+  int A16 = 20;
+  /** RegularExpression Id. */
+  int A17 = 21;
+  /** RegularExpression Id. */
+  int A18 = 22;
+  /** RegularExpression Id. */
+  int A19 = 23;
+  /** RegularExpression Id. */
+  int A20 = 24;
+  /** RegularExpression Id. */
+  int A21 = 25;
+  /** RegularExpression Id. */
+  int A22 = 26;
+  /** RegularExpression Id. */
+  int A23 = 27;
+  /** RegularExpression Id. */
+  int A24 = 28;
+  /** RegularExpression Id. */
+  int A25 = 29;
+  /** RegularExpression Id. */
+  int A26 = 30;
+  /** RegularExpression Id. */
+  int B01 = 31;
+  /** RegularExpression Id. */
+  int B02 = 32;
+  /** RegularExpression Id. */
+  int B03 = 33;
+  /** RegularExpression Id. */
+  int B04 = 34;
+  /** RegularExpression Id. */
+  int B05 = 35;
+  /** RegularExpression Id. */
+  int B06 = 36;
+  /** RegularExpression Id. */
+  int B07 = 37;
+  /** RegularExpression Id. */
+  int B08 = 38;
+  /** RegularExpression Id. */
+  int B09 = 39;
+  /** RegularExpression Id. */
+  int B10 = 40;
+  /** RegularExpression Id. */
+  int B11 = 41;
+  /** RegularExpression Id. */
+  int B12 = 42;
+  /** RegularExpression Id. */
+  int B13 = 43;
+  /** RegularExpression Id. */
+  int B14 = 44;
+  /** RegularExpression Id. */
+  int B15 = 45;
+  /** RegularExpression Id. */
+  int B16 = 46;
+  /** RegularExpression Id. */
+  int B17 = 47;
+  /** RegularExpression Id. */
+  int B18 = 48;
+  /** RegularExpression Id. */
+  int B19 = 49;
+  /** RegularExpression Id. */
+  int B20 = 50;
+  /** RegularExpression Id. */
+  int B21 = 51;
+  /** RegularExpression Id. */
+  int B22 = 52;
+  /** RegularExpression Id. */
+  int B23 = 53;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -41,10 +123,51 @@ public interface ParserConstants {
     "\"caracter\"",
     "\"declaracoes\"",
     "\"enquanto\"",
+    "\"false\"",
+    "\"fimDeclaracoes\"",
+    "\"fimEnquanto\"",
+    "\"fimFunc\"",
+    "\"fimFuncoes\"",
+    "\"fimPrograma\"",
+    "\"fimSe\"",
+    "\"funcoes\"",
+    "\"imprime\"",
+    "\"inteiro\"",
+    "\"logico\"",
+    "\"pausa\"",
+    "\"programa\"",
+    "\"real\"",
+    "\"retorna\"",
+    "\"se\"",
+    "\"senao\"",
+    "\"tipoFunc\"",
+    "\"tipoParam\"",
+    "\"tipoVar\"",
+    "\"true\"",
+    "\"vazio\"",
     "\"%\"",
     "\"(\"",
     "\")\"",
-    "<digito>",
+    "\",\"",
+    "\":\"",
+    "\":=\"",
+    "\";\"",
+    "\"?\"",
+    "\"[\"",
+    "\"]\"",
+    "\"{\"",
+    "\"}\"",
+    "\"-\"",
+    "\"*\"",
+    "\"/\"",
+    "\"+\"",
+    "\"!=\"",
+    "\"#\"",
+    "\"<\"",
+    "\"<=\"",
+    "\"==\"",
+    "\">\"",
+    "\">=\"",
   };
 
 }

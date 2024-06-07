@@ -12,10 +12,51 @@ public class Parser implements ParserConstants {
       case A02:
       case A03:
       case A04:
+      case A05:
+      case A06:
+      case A07:
+      case A08:
+      case A09:
+      case A10:
+      case A11:
+      case A12:
+      case A13:
+      case A14:
+      case A15:
+      case A16:
+      case A17:
+      case A18:
+      case A19:
+      case A20:
+      case A21:
+      case A22:
+      case A23:
+      case A24:
+      case A25:
+      case A26:
       case B01:
       case B02:
       case B03:
-      case digito:{
+      case B04:
+      case B05:
+      case B06:
+      case B07:
+      case B08:
+      case B09:
+      case B10:
+      case B11:
+      case B12:
+      case B13:
+      case B14:
+      case B15:
+      case B16:
+      case B17:
+      case B18:
+      case B19:
+      case B20:
+      case B21:
+      case B22:
+      case B23:{
         ;
         break;
         }
@@ -46,6 +87,94 @@ public class Parser implements ParserConstants {
       jj_consume_token(A04);
       break;
       }
+    case A05:{
+      jj_consume_token(A05);
+      break;
+      }
+    case A06:{
+      jj_consume_token(A06);
+      break;
+      }
+    case A07:{
+      jj_consume_token(A07);
+      break;
+      }
+    case A08:{
+      jj_consume_token(A08);
+      break;
+      }
+    case A09:{
+      jj_consume_token(A09);
+      break;
+      }
+    case A10:{
+      jj_consume_token(A10);
+      break;
+      }
+    case A11:{
+      jj_consume_token(A11);
+      break;
+      }
+    case A12:{
+      jj_consume_token(A12);
+      break;
+      }
+    case A13:{
+      jj_consume_token(A13);
+      break;
+      }
+    case A14:{
+      jj_consume_token(A14);
+      break;
+      }
+    case A15:{
+      jj_consume_token(A15);
+      break;
+      }
+    case A16:{
+      jj_consume_token(A16);
+      break;
+      }
+    case A17:{
+      jj_consume_token(A17);
+      break;
+      }
+    case A18:{
+      jj_consume_token(A18);
+      break;
+      }
+    case A19:{
+      jj_consume_token(A19);
+      break;
+      }
+    case A20:{
+      jj_consume_token(A20);
+      break;
+      }
+    case A21:{
+      jj_consume_token(A21);
+      break;
+      }
+    case A22:{
+      jj_consume_token(A22);
+      break;
+      }
+    case A23:{
+      jj_consume_token(A23);
+      break;
+      }
+    case A24:{
+      jj_consume_token(A24);
+      break;
+      }
+    case A25:{
+      jj_consume_token(A25);
+      break;
+      }
+    case A26:{
+      jj_consume_token(A26);
+      break;
+      }
     case B01:{
       jj_consume_token(B01);
       break;
@@ -58,8 +187,84 @@ public class Parser implements ParserConstants {
       jj_consume_token(B03);
       break;
       }
-    case digito:{
-      jj_consume_token(digito);
+    case B04:{
+      jj_consume_token(B04);
+      break;
+      }
+    case B05:{
+      jj_consume_token(B05);
+      break;
+      }
+    case B06:{
+      jj_consume_token(B06);
+      break;
+      }
+    case B07:{
+      jj_consume_token(B07);
+      break;
+      }
+    case B08:{
+      jj_consume_token(B08);
+      break;
+      }
+    case B09:{
+      jj_consume_token(B09);
+      break;
+      }
+    case B10:{
+      jj_consume_token(B10);
+      break;
+      }
+    case B11:{
+      jj_consume_token(B11);
+      break;
+      }
+    case B12:{
+      jj_consume_token(B12);
+      break;
+      }
+    case B13:{
+      jj_consume_token(B13);
+      break;
+      }
+    case B14:{
+      jj_consume_token(B14);
+      break;
+      }
+    case B15:{
+      jj_consume_token(B15);
+      break;
+      }
+    case B16:{
+      jj_consume_token(B16);
+      break;
+      }
+    case B17:{
+      jj_consume_token(B17);
+      break;
+      }
+    case B18:{
+      jj_consume_token(B18);
+      break;
+      }
+    case B19:{
+      jj_consume_token(B19);
+      break;
+      }
+    case B20:{
+      jj_consume_token(B20);
+      break;
+      }
+    case B21:{
+      jj_consume_token(B21);
+      break;
+      }
+    case B22:{
+      jj_consume_token(B22);
+      break;
+      }
+    case B23:{
+      jj_consume_token(B23);
       break;
       }
     default:
@@ -81,11 +286,16 @@ public class Parser implements ParserConstants {
   static private int jj_gen;
   static final private int[] jj_la1 = new int[2];
   static private int[] jj_la1_0;
+  static private int[] jj_la1_1;
   static {
 	   jj_la1_init_0();
+	   jj_la1_init_1();
 	}
 	private static void jj_la1_init_0() {
-	   jj_la1_0 = new int[] {0x1fe0,0x1fe0,};
+	   jj_la1_0 = new int[] {0xffffffe0,0xffffffe0,};
+	}
+	private static void jj_la1_init_1() {
+	   jj_la1_1 = new int[] {0x3fffff,0x3fffff,};
 	}
 
   /** Constructor with InputStream. */
@@ -231,7 +441,7 @@ public class Parser implements ParserConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
 	 jj_expentries.clear();
-	 boolean[] la1tokens = new boolean[13];
+	 boolean[] la1tokens = new boolean[54];
 	 if (jj_kind >= 0) {
 	   la1tokens[jj_kind] = true;
 	   jj_kind = -1;
@@ -242,10 +452,13 @@ public class Parser implements ParserConstants {
 		   if ((jj_la1_0[i] & (1<<j)) != 0) {
 			 la1tokens[j] = true;
 		   }
+		   if ((jj_la1_1[i] & (1<<j)) != 0) {
+			 la1tokens[32+j] = true;
+		   }
 		 }
 	   }
 	 }
-	 for (int i = 0; i < 13; i++) {
+	 for (int i = 0; i < 54; i++) {
 	   if (la1tokens[i]) {
 		 jj_expentry = new int[1];
 		 jj_expentry[0] = i;

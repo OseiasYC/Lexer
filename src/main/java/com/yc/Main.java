@@ -10,7 +10,7 @@ import com.yc.parser.Token;
 
 public class Main {
     public static void main(String[] args) throws ParseException, NoSuchFieldException {
-        String codigo = "cadeia () \n9";
+        String codigo = "logico < <= != ?";
 
         Parser parser = new Parser(new StringReader(codigo));
 
@@ -18,8 +18,7 @@ public class Main {
 
         System.out.println("Código analisado: " + codigo + "\n");
         while (token.kind != 0) {
-            System.out.println("Código: " + token.kind + " | Lexema: " + token.image + " | Linha: " + token.beginLine
-                    + " | Código na Tabela: " + getTableCode(token.kind));
+            System.out.println("Código: " + getTableCode(token.kind) + " | Lexema: " + token.image + " | Linha: " + token.beginLine);
             token = parser.getNextToken();
         }
     }
