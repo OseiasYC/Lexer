@@ -1,36 +1,29 @@
 package com.yc.utils;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+
+import java.util.Scanner;
 
 public class PathFileReader {
 
-    String name;
-
-    public String read(String filePath) throws IOException {
+    public StringBuilder read(String filePath) {
         StringBuilder content = new StringBuilder();
-
         File file = new File(filePath);
 
-        name = file.getName();
-
-        if (filePath.endsWith(".241")) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    content.append(line).append("\n");
-                }
+        try (Scanner fileScanner = new Scanner(file)) {
+            System.out.println("\nLeitura do arquivo: \u001B[33m" + file.getName() + "\u001B[0m");
+            while (fileScanner.hasNextLine()) {
+                content.append(fileScanner.nextLine()).append("\n");
             }
-            return content.toString();
+
+            if (content.length() == 0) {
+                System.out.println("\u001B[31mO arquivo está vazio.\u001B[0m");
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("\u001B[31mArquivo não encontrado.\u001B[0m");
         }
-
-        return "Caminho ou arquivo inválido.";
+        return content;
     }
-
-    public String getName() {
-        return name;
-    }
-
 }
