@@ -1,10 +1,8 @@
 package com.yc.lexer;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 public class TokenDTO {
 
     public TokenDTO(String lexame, String code, int line, int iSymbolTable, int numChar) {
@@ -13,6 +11,7 @@ public class TokenDTO {
         this.line = line;
         this.iSymbolTable = iSymbolTable;
         this.numChar = numChar;
+        setNumChar(numChar);
 
         if (numChar > 30) {
             setNumCharTrunc(30);
@@ -20,31 +19,16 @@ public class TokenDTO {
         }
     }
 
-    @Getter
-    @Setter
     private String lexame;
 
-    @Getter
-    @Setter
     private String code;
 
-    @Getter
-    @Setter
     private int line;
 
-    @Getter
-    @Setter
     private int iSymbolTable;
 
-    @Getter
-    @Setter
     private int numChar;
 
-    @Getter
     private int numCharTrunc;
-
-    private void setNumCharTrunc(int numCharTrunc) {
-        this.numCharTrunc = numCharTrunc;
-    }
 
 }

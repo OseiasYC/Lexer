@@ -1,3 +1,7 @@
+options {
+    STATIC = false;
+}
+
 PARSER_BEGIN(Parser)
 
 package com.yc.parser;
@@ -6,6 +10,7 @@ public class Parser {
 }
 
 PARSER_END(Parser)
+
 
 SKIP :
 {

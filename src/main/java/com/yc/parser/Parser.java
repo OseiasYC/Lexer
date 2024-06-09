@@ -4,7 +4,7 @@ package com.yc.parser;
 
 public class Parser implements ParserConstants {
 
-  static final public void Input() throws ParseException {
+  final public void Input() throws ParseException {
     label_1:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
@@ -75,7 +75,7 @@ public class Parser implements ParserConstants {
     jj_consume_token(0);
 }
 
-  static final public void Token() throws ParseException {
+  final public void Token() throws ParseException {
     switch ((jj_ntk==-1)?jj_ntk_f():jj_ntk) {
     case A01:{
       jj_consume_token(A01);
@@ -304,17 +304,16 @@ public class Parser implements ParserConstants {
     }
 }
 
-  static private boolean jj_initialized_once = false;
   /** Generated Token Manager. */
-  static public ParserTokenManager token_source;
-  static SimpleCharStream jj_input_stream;
+  public ParserTokenManager token_source;
+  SimpleCharStream jj_input_stream;
   /** Current token. */
-  static public Token token;
+  public Token token;
   /** Next token. */
-  static public Token jj_nt;
-  static private int jj_ntk;
-  static private int jj_gen;
-  static final private int[] jj_la1 = new int[2];
+  public Token jj_nt;
+  private int jj_ntk;
+  private int jj_gen;
+  final private int[] jj_la1 = new int[2];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -334,13 +333,6 @@ public class Parser implements ParserConstants {
   }
   /** Constructor with InputStream and supplied encoding */
   public Parser(java.io.InputStream stream, String encoding) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser.  ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 try { jj_input_stream = new SimpleCharStream(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
 	 token_source = new ParserTokenManager(jj_input_stream);
 	 token = new Token();
@@ -350,11 +342,11 @@ public class Parser implements ParserConstants {
   }
 
   /** Reinitialise. */
-  static public void ReInit(java.io.InputStream stream) {
+  public void ReInit(java.io.InputStream stream) {
 	  ReInit(stream, null);
   }
   /** Reinitialise. */
-  static public void ReInit(java.io.InputStream stream, String encoding) {
+  public void ReInit(java.io.InputStream stream, String encoding) {
 	 try { jj_input_stream.ReInit(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
 	 token_source.ReInit(jj_input_stream);
 	 token = new Token();
@@ -365,13 +357,6 @@ public class Parser implements ParserConstants {
 
   /** Constructor. */
   public Parser(java.io.Reader stream) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser. ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 jj_input_stream = new SimpleCharStream(stream, 1, 1);
 	 token_source = new ParserTokenManager(jj_input_stream);
 	 token = new Token();
@@ -381,7 +366,7 @@ public class Parser implements ParserConstants {
   }
 
   /** Reinitialise. */
-  static public void ReInit(java.io.Reader stream) {
+  public void ReInit(java.io.Reader stream) {
 	if (jj_input_stream == null) {
 	   jj_input_stream = new SimpleCharStream(stream, 1, 1);
 	} else {
@@ -400,13 +385,6 @@ public class Parser implements ParserConstants {
 
   /** Constructor with generated Token Manager. */
   public Parser(ParserTokenManager tm) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser. ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 token_source = tm;
 	 token = new Token();
 	 jj_ntk = -1;
@@ -423,7 +401,7 @@ public class Parser implements ParserConstants {
 	 for (int i = 0; i < 2; i++) jj_la1[i] = -1;
   }
 
-  static private Token jj_consume_token(int kind) throws ParseException {
+  private Token jj_consume_token(int kind) throws ParseException {
 	 Token oldToken;
 	 if ((oldToken = token).next != null) token = token.next;
 	 else token = token.next = token_source.getNextToken();
@@ -439,7 +417,7 @@ public class Parser implements ParserConstants {
 
 
 /** Get the next Token. */
-  static final public Token getNextToken() {
+  final public Token getNextToken() {
 	 if (token.next != null) token = token.next;
 	 else token = token.next = token_source.getNextToken();
 	 jj_ntk = -1;
@@ -448,7 +426,7 @@ public class Parser implements ParserConstants {
   }
 
 /** Get the specific Token. */
-  static final public Token getToken(int index) {
+  final public Token getToken(int index) {
 	 Token t = token;
 	 for (int i = 0; i < index; i++) {
 	   if (t.next != null) t = t.next;
@@ -457,19 +435,19 @@ public class Parser implements ParserConstants {
 	 return t;
   }
 
-  static private int jj_ntk_f() {
+  private int jj_ntk_f() {
 	 if ((jj_nt=token.next) == null)
 	   return (jj_ntk = (token.next=token_source.getNextToken()).kind);
 	 else
 	   return (jj_ntk = jj_nt.kind);
   }
 
-  static private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
-  static private int[] jj_expentry;
-  static private int jj_kind = -1;
+  private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
+  private int[] jj_expentry;
+  private int jj_kind = -1;
 
   /** Generate ParseException. */
-  static public ParseException generateParseException() {
+  public ParseException generateParseException() {
 	 jj_expentries.clear();
 	 boolean[] la1tokens = new boolean[62];
 	 if (jj_kind >= 0) {
@@ -502,19 +480,19 @@ public class Parser implements ParserConstants {
 	 return new ParseException(token, exptokseq, tokenImage);
   }
 
-  static private boolean trace_enabled;
+  private boolean trace_enabled;
 
 /** Trace enabled. */
-  static final public boolean trace_enabled() {
+  final public boolean trace_enabled() {
 	 return trace_enabled;
   }
 
   /** Enable tracing. */
-  static final public void enable_tracing() {
+  final public void enable_tracing() {
   }
 
   /** Disable tracing. */
-  static final public void disable_tracing() {
+  final public void disable_tracing() {
   }
 
 }

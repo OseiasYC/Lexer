@@ -6,27 +6,28 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PathFileReader {
+    public StringBuilder content = new StringBuilder();
+
+    public String fileName;
 
     public StringBuilder read(String filePath) {
-        StringBuilder content = new StringBuilder();
         File file = new File(filePath);
 
-        // if (!file.getName().endsWith(".241")) {
-        //     file.getExtension();
-        // }
+        fileName = file.getName();
 
         try (Scanner fileScanner = new Scanner(file)) {
-            System.out.println("\nLeitura do arquivo: \u001B[33m" + file.getName() + "\u001B[0m");
+            System.out.println("\nTexto fonte analisado: \u001B[33m" + fileName + "\u001B[0m");
+
             while (fileScanner.hasNextLine()) {
                 content.append(fileScanner.nextLine()).append("\n");
             }
 
             if (content.length() == 0) {
-                System.out.println("\u001B[31mO arquivo está vazio.\u001B[0m");
+                System.out.println("\u001B[31mO arquivo está vazio. Tente novamente.\u001B[0m");
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("\u001B[31mArquivo não encontrado.\u001B[0m");
+            System.out.println("\u001B[31mArquivo inválido ou não encontrado. Tente novamente.\u001B[0m");
         }
         return content;
     }

@@ -12,12 +12,11 @@ import com.yc.parser.Token;
 
 public class Lexer {
 
-    public List<TokenDTO> getTokens(StringBuilder code) throws NoSuchFieldException, SecurityException {
+    public List<TokenDTO> readTokens(StringBuilder code) throws NoSuchFieldException, SecurityException {
         Parser parser = new Parser(new StringReader(code.toString()));
+        List<TokenDTO> tokens = new ArrayList<>();
 
         Token token = parser.getNextToken();
-
-        List<TokenDTO> tokens = new ArrayList<>();
 
         int iSymbleTable = 0;
 
@@ -27,10 +26,10 @@ public class Lexer {
                 iSymbleTable++;
             }
 
-            tokens.add(new TokenDTO(token.image, getTokenCode(token.kind), token.beginLine, iSymbleTable, token.toString().length()));
+            tokens.add(new TokenDTO(token.image, getTokenCode(token.kind), token.beginLine, iSymbleTable,
+                    token.toString().length()));
             token = parser.getNextToken();
         }
-
         return tokens;
     }
 
