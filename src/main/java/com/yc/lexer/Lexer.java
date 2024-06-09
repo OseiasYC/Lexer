@@ -19,8 +19,15 @@ public class Lexer {
 
         List<TokenDTO> tokens = new ArrayList<>();
 
+        int iSymbleTable = 0;
+
         while (token.kind != 0) {
-            tokens.add(new TokenDTO(token.image, getTokenCode(token.kind), token.beginLine));
+
+            if (getTokenCode(token.kind).startsWith("B")) {
+                iSymbleTable++;
+            }
+
+            tokens.add(new TokenDTO(token.image, getTokenCode(token.kind), token.beginLine, iSymbleTable, token.toString().length()));
             token = parser.getNextToken();
         }
 

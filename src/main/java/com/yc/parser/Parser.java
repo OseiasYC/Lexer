@@ -56,7 +56,13 @@ public class Parser implements ParserConstants {
       case B20:
       case B21:
       case B22:
-      case B23:{
+      case C01:
+      case C02:
+      case C03:
+      case C04:
+      case C05:
+      case C06:
+      case C07:{
         ;
         break;
         }
@@ -263,8 +269,32 @@ public class Parser implements ParserConstants {
       jj_consume_token(B22);
       break;
       }
-    case B23:{
-      jj_consume_token(B23);
+    case C01:{
+      jj_consume_token(C01);
+      break;
+      }
+    case C02:{
+      jj_consume_token(C02);
+      break;
+      }
+    case C03:{
+      jj_consume_token(C03);
+      break;
+      }
+    case C04:{
+      jj_consume_token(C04);
+      break;
+      }
+    case C05:{
+      jj_consume_token(C05);
+      break;
+      }
+    case C06:{
+      jj_consume_token(C06);
+      break;
+      }
+    case C07:{
+      jj_consume_token(C07);
       break;
       }
     default:
@@ -292,10 +322,10 @@ public class Parser implements ParserConstants {
 	   jj_la1_init_1();
 	}
 	private static void jj_la1_init_0() {
-	   jj_la1_0 = new int[] {0xffffffe0,0xffffffe0,};
+	   jj_la1_0 = new int[] {0xffffff80,0xffffff80,};
 	}
 	private static void jj_la1_init_1() {
-	   jj_la1_1 = new int[] {0x3fffff,0x3fffff,};
+	   jj_la1_1 = new int[] {0x3fffffff,0x3fffffff,};
 	}
 
   /** Constructor with InputStream. */
@@ -441,7 +471,7 @@ public class Parser implements ParserConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
 	 jj_expentries.clear();
-	 boolean[] la1tokens = new boolean[54];
+	 boolean[] la1tokens = new boolean[62];
 	 if (jj_kind >= 0) {
 	   la1tokens[jj_kind] = true;
 	   jj_kind = -1;
@@ -458,7 +488,7 @@ public class Parser implements ParserConstants {
 		 }
 	   }
 	 }
-	 for (int i = 0; i < 54; i++) {
+	 for (int i = 0; i < 62; i++) {
 	   if (la1tokens[i]) {
 		 jj_expentry = new int[1];
 		 jj_expentry[0] = i;

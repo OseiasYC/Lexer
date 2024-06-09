@@ -11,103 +11,119 @@ public interface ParserConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int A01 = 5;
+  int COMMENT = 5;
   /** RegularExpression Id. */
-  int A02 = 6;
+  int LINE_COMMENT = 6;
   /** RegularExpression Id. */
-  int A03 = 7;
+  int A01 = 7;
   /** RegularExpression Id. */
-  int A04 = 8;
+  int A02 = 8;
   /** RegularExpression Id. */
-  int A05 = 9;
+  int A03 = 9;
   /** RegularExpression Id. */
-  int A06 = 10;
+  int A04 = 10;
   /** RegularExpression Id. */
-  int A07 = 11;
+  int A05 = 11;
   /** RegularExpression Id. */
-  int A08 = 12;
+  int A06 = 12;
   /** RegularExpression Id. */
-  int A09 = 13;
+  int A07 = 13;
   /** RegularExpression Id. */
-  int A10 = 14;
+  int A08 = 14;
   /** RegularExpression Id. */
-  int A11 = 15;
+  int A09 = 15;
   /** RegularExpression Id. */
-  int A12 = 16;
+  int A10 = 16;
   /** RegularExpression Id. */
-  int A13 = 17;
+  int A11 = 17;
   /** RegularExpression Id. */
-  int A14 = 18;
+  int A12 = 18;
   /** RegularExpression Id. */
-  int A15 = 19;
+  int A13 = 19;
   /** RegularExpression Id. */
-  int A16 = 20;
+  int A14 = 20;
   /** RegularExpression Id. */
-  int A17 = 21;
+  int A15 = 21;
   /** RegularExpression Id. */
-  int A18 = 22;
+  int A16 = 22;
   /** RegularExpression Id. */
-  int A19 = 23;
+  int A17 = 23;
   /** RegularExpression Id. */
-  int A20 = 24;
+  int A18 = 24;
   /** RegularExpression Id. */
-  int A21 = 25;
+  int A19 = 25;
   /** RegularExpression Id. */
-  int A22 = 26;
+  int A20 = 26;
   /** RegularExpression Id. */
-  int A23 = 27;
+  int A21 = 27;
   /** RegularExpression Id. */
-  int A24 = 28;
+  int A22 = 28;
   /** RegularExpression Id. */
-  int A25 = 29;
+  int A23 = 29;
   /** RegularExpression Id. */
-  int A26 = 30;
+  int A24 = 30;
   /** RegularExpression Id. */
-  int B01 = 31;
+  int A25 = 31;
   /** RegularExpression Id. */
-  int B02 = 32;
+  int A26 = 32;
   /** RegularExpression Id. */
-  int B03 = 33;
+  int B01 = 33;
   /** RegularExpression Id. */
-  int B04 = 34;
+  int B02 = 34;
   /** RegularExpression Id. */
-  int B05 = 35;
+  int B03 = 35;
   /** RegularExpression Id. */
-  int B06 = 36;
+  int B04 = 36;
   /** RegularExpression Id. */
-  int B07 = 37;
+  int B05 = 37;
   /** RegularExpression Id. */
-  int B08 = 38;
+  int B06 = 38;
   /** RegularExpression Id. */
-  int B09 = 39;
+  int B07 = 39;
   /** RegularExpression Id. */
-  int B10 = 40;
+  int B08 = 40;
   /** RegularExpression Id. */
-  int B11 = 41;
+  int B09 = 41;
   /** RegularExpression Id. */
-  int B12 = 42;
+  int B10 = 42;
   /** RegularExpression Id. */
-  int B13 = 43;
+  int B11 = 43;
   /** RegularExpression Id. */
-  int B14 = 44;
+  int B12 = 44;
   /** RegularExpression Id. */
-  int B15 = 45;
+  int B13 = 45;
   /** RegularExpression Id. */
-  int B16 = 46;
+  int B14 = 46;
   /** RegularExpression Id. */
-  int B17 = 47;
+  int B15 = 47;
   /** RegularExpression Id. */
-  int B18 = 48;
+  int B16 = 48;
   /** RegularExpression Id. */
-  int B19 = 49;
+  int B17 = 49;
   /** RegularExpression Id. */
-  int B20 = 50;
+  int B18 = 50;
   /** RegularExpression Id. */
-  int B21 = 51;
+  int B19 = 51;
   /** RegularExpression Id. */
-  int B22 = 52;
+  int B20 = 52;
   /** RegularExpression Id. */
-  int B23 = 53;
+  int B21 = 53;
+  /** RegularExpression Id. */
+  int B22 = 54;
+  /** RegularExpression Id. */
+  int C01 = 55;
+  /** RegularExpression Id. */
+  int C02 = 56;
+  /** RegularExpression Id. */
+  int C03 = 57;
+  /** RegularExpression Id. */
+  int C04 = 58;
+  /** RegularExpression Id. */
+  int C05 = 59;
+  /** RegularExpression Id. */
+  int C06 = 60;
+  /** RegularExpression Id. */
+  int C07 = 61;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -119,6 +135,8 @@ public interface ParserConstants {
     "\"\\t\"",
     "\"\\n\"",
     "\"\\r\"",
+    "<COMMENT>",
+    "<LINE_COMMENT>",
     "\"cadeia\"",
     "\"caracter\"",
     "\"declaracoes\"",
@@ -161,13 +179,19 @@ public interface ParserConstants {
     "\"*\"",
     "\"/\"",
     "\"+\"",
-    "\"!=\"",
-    "\"#\"",
+    "<B17>",
     "\"<\"",
     "\"<=\"",
     "\"==\"",
     "\">\"",
     "\">=\"",
+    "<C01>",
+    "<C02>",
+    "<C03>",
+    "<C04>",
+    "<C05>",
+    "<C06>",
+    "<C07>",
   };
 
 }

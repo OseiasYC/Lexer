@@ -57,7 +57,7 @@ public class TUI {
             List<TokenDTO> tokens = lexer.getTokens(pathFileReader.read(filePath));
 
             for (TokenDTO tokenDTO : tokens) {
-                System.out.println(tokenDTO.getCode() + " " + tokenDTO.getLexame() + " " + tokenDTO.getLine());
+                System.out.println(tokenDTO.toString());
             }
         } catch (NoSuchFieldException | SecurityException e) {
             e.printStackTrace();

@@ -11,6 +11,10 @@ public class PathFileReader {
         StringBuilder content = new StringBuilder();
         File file = new File(filePath);
 
+        // if (!file.getName().endsWith(".241")) {
+        //     file.getExtension();
+        // }
+
         try (Scanner fileScanner = new Scanner(file)) {
             System.out.println("\nLeitura do arquivo: \u001B[33m" + file.getName() + "\u001B[0m");
             while (fileScanner.hasNextLine()) {
