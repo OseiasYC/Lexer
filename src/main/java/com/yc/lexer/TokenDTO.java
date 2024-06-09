@@ -11,7 +11,7 @@ public class TokenDTO {
         this.line = line;
         this.iSymbolTable = iSymbolTable;
         this.numChar = numChar;
-        setNumChar(numChar);
+        setNumCharTrunc(numChar);
 
         if (numChar > 30) {
             setNumCharTrunc(30);
