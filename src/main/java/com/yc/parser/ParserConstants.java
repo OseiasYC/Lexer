@@ -192,6 +192,7 @@ public interface ParserConstants {
     "<C05>",
     "<C06>",
     "<C07>",
+    "<token of kind 62>",
   };
 
 }

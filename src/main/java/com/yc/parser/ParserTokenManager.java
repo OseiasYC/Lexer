@@ -1143,19 +1143,11 @@ private int jjMoveNfa_0(int startState, int curPos)
 
 /** Token literal values. */
 public static final String[] jjstrLiteralImages = {
-"", null, null, null, null, null, null, "\143\141\144\145\151\141", 
-"\143\141\162\141\143\164\145\162", "\144\145\143\154\141\162\141\143\157\145\163", 
-"\145\156\161\165\141\156\164\157", "\146\141\154\163\145", 
-"\146\151\155\104\145\143\154\141\162\141\143\157\145\163", "\146\151\155\105\156\161\165\141\156\164\157", 
-"\146\151\155\106\165\156\143", "\146\151\155\106\165\156\143\157\145\163", 
-"\146\151\155\120\162\157\147\162\141\155\141", "\146\151\155\123\145", "\146\165\156\143\157\145\163", 
-"\151\155\160\162\151\155\145", "\151\156\164\145\151\162\157", "\154\157\147\151\143\157", 
-"\160\141\165\163\141", "\160\162\157\147\162\141\155\141", "\162\145\141\154", 
-"\162\145\164\157\162\156\141", "\163\145", "\163\145\156\141\157", "\164\151\160\157\106\165\156\143", 
-"\164\151\160\157\120\141\162\141\155", "\164\151\160\157\126\141\162", "\164\162\165\145", "\166\141\172\151\157", 
-"\45", "\50", "\51", "\54", "\72", "\72\75", "\73", "\77", "\133", "\135", "\173", 
-"\175", "\55", "\52", "\57", "\53", null, "\74", "\74\75", "\75\75", "\76", "\76\75", 
-null, null, null, null, null, null, null, };
+null, null, null, null, null, null, null, null, null, null, null, null, null, 
+null, null, null, null, null, null, null, null, null, null, null, null, null, null, 
+null, null, null, null, null, null, null, null, null, null, null, null, null, null, 
+null, null, null, null, null, null, null, null, null, null, null, null, null, null, 
+null, null, null, null, null, null, null, null, };
 protected Token jjFillToken()
 {
    final Token t;
@@ -1211,14 +1203,20 @@ public Token getNextToken()
       return matchedToken;
    }
 
-   try { input_stream.backup(0);
-      while (curChar <= 32 && (0x100002600L & (1L << curChar)) != 0L)
-         curChar = input_stream.BeginToken();
-   }
-   catch (java.io.IOException e1) { continue EOFLoop; }
-   jjmatchedKind = 0x7fffffff;
-   jjmatchedPos = 0;
-   curPos = jjMoveStringLiteralDfa0_0();
+   for (;;)
+   {
+     try { input_stream.backup(0);
+        while (curChar <= 32 && (0x100002600L & (1L << curChar)) != 0L)
+           curChar = input_stream.BeginToken();
+     }
+     catch (java.io.IOException e1) { continue EOFLoop; }
+     jjmatchedKind = 0x7fffffff;
+     jjmatchedPos = 0;
+     curPos = jjMoveStringLiteralDfa0_0();
+     if (jjmatchedPos == 0 && jjmatchedKind > 62)
+     {
+        jjmatchedKind = 62;
+     }
    if (jjmatchedKind != 0x7fffffff)
    {
       if (jjmatchedPos + 1 < curPos)
@@ -1228,10 +1226,17 @@ public Token getNextToken()
          matchedToken = jjFillToken();
          return matchedToken;
       }
-      else
+      else if ((jjtoSkip[jjmatchedKind >> 6] & (1L << (jjmatchedKind & 077))) != 0L)
       {
          continue EOFLoop;
       }
+      curPos = 0;
+      jjmatchedKind = 0x7fffffff;
+      try {
+         curChar = input_stream.readChar();
+         continue;
+      }
+      catch (java.io.IOException e1) { }
    }
    int error_line = input_stream.getEndLine();
    int error_column = input_stream.getEndColumn();
@@ -1253,6 +1258,7 @@ public Token getNextToken()
       error_after = curPos <= 1 ? "" : input_stream.GetImage();
    }
    throw new TokenMgrError(EOFSeen, curLexState, error_line, error_column, error_after, curChar, TokenMgrError.LEXICAL_ERROR);
+ }
   }
 }
 
@@ -1372,7 +1378,7 @@ public static final String[] lexStateNames = {
 public static final int[] jjnewLexState = {
    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 };
 static final long[] jjtoToken = {
    0x3fffffffffffff81L, 
@@ -1384,7 +1390,7 @@ static final long[] jjtoSpecial = {
    0x0L, 
 };
 static final long[] jjtoMore = {
-   0x0L, 
+   0x4000000000000000L, 
 };
     protected SimpleCharStream  input_stream;
 
