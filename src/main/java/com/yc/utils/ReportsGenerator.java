@@ -84,16 +84,17 @@ public class ReportsGenerator {
     }
 
     public void readLex() {
-        read("\n" + fileName + ".lex");
+        read(fileName + ".lex");
     }
 
     public void readTab() {
-        read("\n" + fileName + ".tab");
+        read(fileName + ".tab");
     }
 
     private void read(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader("reports/" + fileName))) {
             String line;
+            System.out.println("\n");
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
