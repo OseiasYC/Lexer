@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class LexData {
-    private String lexame;
+    private String lexeme;
 
     private String code;
 
-    private int indexSymbolTable;
+    private String indexSymbolTable;
 
     private int line;
 }

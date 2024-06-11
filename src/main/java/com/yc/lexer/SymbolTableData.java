@@ -8,11 +8,11 @@ import lombok.Data;
 @Data
 public class SymbolTableData {
 
-    public SymbolTableData(int entry, String code, String lexame, int numChar, String type,
+    public SymbolTableData(int entry, String code, String lexeme, int numChar, String type,
             List<Integer> lines) {
         this.entry = entry;
         this.code = code;
-        this.lexame = lexame;
+        this.lexeme = lexeme;
         this.numChar = numChar;
         this.type = type;
         this.lines = lines;
@@ -21,7 +21,7 @@ public class SymbolTableData {
 
         if (numChar > 30) {
             setNumCharTrunc(30);
-            setLexame(lexame.substring(0, 30));
+            setLexeme(lexeme.substring(0, 30));
         }
     }
 
@@ -29,7 +29,7 @@ public class SymbolTableData {
 
     private String code;
 
-    private String lexame;
+    private String lexeme;
 
     private int numChar;
 
