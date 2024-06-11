@@ -3,12 +3,10 @@ package com.yc.utils;
 import java.util.Scanner;
 
 import com.yc.Main;
-import com.yc.lexer.Lexer;
 
 public class TUI {
     ReportsGenerator reportsGenerator = new ReportsGenerator();
     PathFileReader pathFileReader = new PathFileReader();
-    Lexer lexer = new Lexer();
     StringBuilder content;
     Scanner sc = new Scanner(System.in);
     String filePath;
@@ -24,7 +22,7 @@ public class TUI {
         System.out.println(CYAN + "COMPONENTES - CÓDIGO DA EQUIPE: " + RESET + "EQ03\n" +
                 PINK + "    Harrison Borges dos Santos  " + RESET
                 + " | harrison.borges@ucsal.edu.br  | (71) 99290-4126\n" +
-                PINK + "    Iago Roque Ribeiro Noaves   " + RESET
+                PINK + "    Iago Roque Ribeiro Novaes   " + RESET
                 + " | iago.roque@ucsal.edu.br       | (73) 99934-6222\n" +
                 PINK + "    Lucas Farias da Silva       " + RESET
                 + " | lucas.farias@ucsal.edu.br     | (71) 99368-8705\n" +
@@ -38,9 +36,12 @@ public class TUI {
 
         try {
             do {
-                System.out.println(
-                        "\nInsira o local ou o caminho absoluto do arquivo para análise - sem aspas.");
+                System.out.println("\nInsira o local absoluto ou relativo do arquivo:");
                 filePath = sc.nextLine();
+
+                if (!filePath.endsWith(".241")) {
+                    filePath = filePath + ".241";
+                }
 
                 content = pathFileReader.read(filePath);
                 fileName = pathFileReader.fileName;
@@ -53,18 +54,8 @@ public class TUI {
         } catch (Exception e) {
             System.out.println(
                     RED + "\nOcorreu um erro inesperado durante a leitura, por favor, tente novamente." + RESET);
+                    e.printStackTrace();
             body();
-        }
-    }
-
-    public void footer() {
-        try {
-            reportsGenerator.generate(fileName, content);
-            System.out.println(GREEN + "\nRelatórios gerados com sucesso na pasta \"reports\".\n");
-            menu();
-        } catch (NoSuchFieldException | SecurityException e) {
-            System.out.println(
-                    RED + "\nOcorreu um erro inesperado nos relatórios, por favor, tente novamente." + RESET);
         }
     }
 
@@ -78,18 +69,19 @@ public class TUI {
         while (option < 1 || option > 5) {
             System.out.println(RED + "\nDigite um número válido:" + RESET);
             option = sc.nextInt();
+            System.out.println("\n");
         }
 
         switch (option) {
             case 1:
-                reportsGenerator.showLex();
+                reportsGenerator.readTab();
                 break;
             case 2:
-                reportsGenerator.showTab();
+                reportsGenerator.readLex();
                 break;
             case 3:
-                reportsGenerator.showLex();
-                reportsGenerator.showTab();
+                reportsGenerator.readLex();
+                reportsGenerator.readTab();
                 break;
             case 4:
                 Main.main(null);
@@ -99,5 +91,17 @@ public class TUI {
                 break;
         }
         menu();
+    }
+    
+    public void footer() {
+        try {
+            reportsGenerator.generate(fileName, content);
+
+            System.out.println(GREEN + "\nRelatórios gerados com sucesso na pasta \"reports\".\n");
+            menu();
+        } catch (NoSuchFieldException | SecurityException e) {
+            System.out.println(
+                    RED + "\nOcorreu um erro inesperado nos relatórios, por favor, tente novamente." + RESET);
+        }
     }
 }

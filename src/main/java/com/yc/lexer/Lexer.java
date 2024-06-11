@@ -2,7 +2,12 @@ package com.yc.lexer;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.yc.parser.ParserConstants;
 import java.io.StringReader;
@@ -11,29 +16,67 @@ import com.yc.parser.Parser;
 import com.yc.parser.Token;
 
 public class Lexer {
+    Parser parser;
+    List<Token> tokens;
 
-    public List<TokenDTO> readTokens(StringBuilder code) throws NoSuchFieldException, SecurityException {
-        Parser parser = new Parser(new StringReader(code.toString()));
-        List<TokenDTO> tokens = new ArrayList<>();
-
-        Token token = parser.getNextToken();
-
-        int iSymbleTable = 0;
-
-        while (token.kind != 0) {
-
-            if (getTokenCode(token.kind).startsWith("B")) {
-                iSymbleTable++;
-            }
-
-            tokens.add(new TokenDTO(token.image, getTokenCode(token.kind), token.beginLine, iSymbleTable,
-                    token.toString().length()));
-            token = parser.getNextToken();
-        }
-        return tokens;
+    public Lexer(StringBuilder textFont) {
+        this.parser = new Parser(new StringReader(textFont.toString()));
+        this.tokens = new ArrayList<>();
     }
 
-    public String getTokenCode(int kind) throws NoSuchFieldException, SecurityException {
+    public List<SymbolTableData> getSymbolTableData() {
+        readAllTokens();
+        Map<String, SymbolTableData> symbolTableMap = new LinkedHashMap<>();
+        int entryCounter = 1;
+
+        for (Token token : tokens) {
+            String lexeme = token.image;
+            int lineNumber = token.beginLine;
+
+            if (getTokenCode(token.kind).startsWith("C")) {
+                SymbolTableData symbolTableData = symbolTableMap.get(lexeme);
+
+                if (symbolTableData == null) {
+                    List<Integer> lines = new ArrayList<>();
+                    lines.add(lineNumber);
+                    symbolTableData = new SymbolTableData(entryCounter++, getTokenCode(token.kind), lexeme,
+                            lexeme.length(), "TODO", lines);
+                    symbolTableMap.put(lexeme, symbolTableData);
+                } else {
+                    symbolTableData.getLines().add(lineNumber);
+                }
+            }
+        }
+
+        return new ArrayList<>(symbolTableMap.values());
+    }
+
+    public List<LexData> getLexData() {
+        readAllTokens();
+        List<LexData> lexData = new ArrayList<>();
+        List<SymbolTableData> symbolTableData;
+
+        symbolTableData = getSymbolTableData();
+        int i = 1;
+        for (Token token : tokens) {
+            String indexSymbolTable = "NA";
+
+            for (SymbolTableData data : symbolTableData) {
+                if (data.getLexeme().equals(token.image)) {
+
+                    indexSymbolTable = Integer.toString(i++);
+                    break;
+                }
+            }
+
+            lexData.add(new LexData(token.image, getTokenCode(token.kind), indexSymbolTable, token.beginLine));
+
+        }
+
+        return lexData;
+    }
+
+    public String getTokenCode(int kind) {
         Field[] fields = ParserConstants.class.getDeclaredFields();
 
         for (Field field : fields) {
@@ -44,7 +87,16 @@ public class Lexer {
             } catch (IllegalAccessException e) {
             }
         }
-        throw new NoSuchFieldException("Código da Tabela não encontrado.");
+        return null;
     }
 
+    private void readAllTokens() {
+        if (tokens.isEmpty()) {
+            Token token = parser.getNextToken();
+            while (token.kind != 0) {
+                tokens.add(token);
+                token = parser.getNextToken();
+            }
+        }
+    }
 }

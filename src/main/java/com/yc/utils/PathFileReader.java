@@ -23,11 +23,11 @@ public class PathFileReader {
             }
 
             if (content.length() == 0) {
-                System.out.println("\u001B[31mO arquivo está vazio. Tente novamente.\u001B[0m");
+                System.err.println("\u001B[31mO arquivo está vazio. Tente novamente.\u001B[0m");
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("\u001B[31mArquivo inválido ou não encontrado. Tente novamente.\u001B[0m");
+            System.err.println("\u001B[31mArquivo inválido ou não encontrado. Tente novamente.\u001B[0m");
         }
         return content;
     }
