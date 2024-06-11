@@ -2,7 +2,10 @@ package com.yc.lexer;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +26,7 @@ public class Lexer {
 
     public List<SymbolTableData> getSymbolTableData() {
         readAllTokens();
-        Map<String, SymbolTableData> symbolTableMap = new HashMap<>();
+        Map<String, SymbolTableData> symbolTableMap = new LinkedHashMap<>();
         int entryCounter = 1;
 
         for (Token token : tokens) {
@@ -53,15 +56,14 @@ public class Lexer {
         List<LexData> lexData = new ArrayList<>();
         List<SymbolTableData> symbolTableData;
 
-            symbolTableData = getSymbolTableData();
-
-
+        symbolTableData = getSymbolTableData();
+        int i = 1;
         for (Token token : tokens) {
             String indexSymbolTable = "NA";
 
             for (SymbolTableData data : symbolTableData) {
                 if (data.getLexeme().equals(token.image)) {
-                    int i = 1;
+
                     indexSymbolTable = Integer.toString(i++);
                     break;
                 }

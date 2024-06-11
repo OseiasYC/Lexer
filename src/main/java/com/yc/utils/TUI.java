@@ -36,7 +36,7 @@ public class TUI {
 
         try {
             do {
-                System.out.println("\nInsira o local do arquivo:");
+                System.out.println("\nInsira o local absoluto ou relativo do arquivo:");
                 filePath = sc.nextLine();
 
                 if (!filePath.endsWith(".241")) {
