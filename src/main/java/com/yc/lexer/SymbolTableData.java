@@ -8,20 +8,20 @@ import lombok.Data;
 @Data
 public class SymbolTableData {
 
-    public SymbolTableData(int entry, String code, String lexeme, int numChar, String type,
+    public SymbolTableData(int entry, String code, Object lexeme, int numChar,
             List<Integer> lines) {
         this.entry = entry;
         this.code = code;
         this.lexeme = lexeme;
         this.numChar = numChar;
-        this.type = type;
+        this.type = identifyType(lexeme);
         this.lines = lines;
 
         setNumCharTrunc(numChar);
 
         if (numChar > 30) {
             setNumCharTrunc(30);
-            setLexeme(lexeme.substring(0, 30));
+            setLexeme(truncate(lexeme));
         }
     }
 
@@ -29,7 +29,7 @@ public class SymbolTableData {
 
     private String code;
 
-    private String lexeme;
+    private Object lexeme;
 
     private int numChar;
 
@@ -39,4 +39,38 @@ public class SymbolTableData {
 
     private List<Integer> lines = new ArrayList<>();
 
+    private Object truncate(Object lexeme) {
+        String core = lexeme.toString();
+
+        if (lexeme instanceof String && core.startsWith("\"") && core.endsWith("\"")) {
+            core = core.substring(1, core.length() - 1);
+
+            if (core.length() > 30 - 2) {
+                core = core.substring(0, 30 - 2);
+            }
+
+            return "\"" + core + "\"";
+        }
+
+        return core;
+    }
+
+    public static String identifyType(Object obj) {
+        if (obj instanceof String) {
+            String str = (String) obj;
+            if (str.matches("^\"([a-zA-Z0-9]| |\\$|_|\\.)*\"$")) {
+                return "STR";
+            } else if (str.matches("^-?\\d+$")) {
+                return "INT";
+            } else if (str.matches("^-?\\d*\\.\\d+$")) {
+                return "PFO";
+            } else if (str.matches("^true|false$")) {
+                return "BOO";
+            } else if (str.length() == 1) {
+                return "CHC";
+            }
+        }
+        return "VOI";
+
+    }
 }

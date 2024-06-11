@@ -70,9 +70,9 @@ public class ReportsGenerator {
             for (SymbolTableData data : symbolTableData) {
                 writerLEX.write(
                         String.format(
-                                "------------------------------------------------------------------------------------------\nEntrada: %s, Código: %s, Lexame: %s,\nQtdCharAntesTrunc: %s, QtdCharDepoisTrunc: %s,\nTipoSimb: TODO, Linhas: %s\n",
+                                "------------------------------------------------------------------------------------------\nEntrada: %s, Código: %s, Lexame: %s,\nQtdCharAntesTrunc: %s, QtdCharDepoisTrunc: %s,\nTipoSimb: %s, Linhas: %s\n",
                                 data.getEntry(), data.getCode(), data.getLexeme(), data.getNumChar(),
-                                data.getNumCharTrunc(), data.getLines()));
+                                data.getNumCharTrunc(), data.getType(), data.getLines()));
             }
 
             writerLEX.close();

@@ -2,9 +2,6 @@ package com.yc.lexer;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +37,7 @@ public class Lexer {
                     List<Integer> lines = new ArrayList<>();
                     lines.add(lineNumber);
                     symbolTableData = new SymbolTableData(entryCounter++, getTokenCode(token.kind), lexeme,
-                            lexeme.length(), "TODO", lines);
+                            lexeme.length(), lines);
                     symbolTableMap.put(lexeme, symbolTableData);
                 } else {
                     symbolTableData.getLines().add(lineNumber);
@@ -93,6 +90,20 @@ public class Lexer {
     private void readAllTokens() {
         if (tokens.isEmpty()) {
             Token token = parser.getNextToken();
+
+            if (token.image.length() > 30 && token.image.charAt(29) == '.') {
+                token.image = token.image.substring(0, 29) + token.image.substring(30);
+                token.kind = 56;
+            }
+
+            if (token.image.equals("programa")) {
+                token = parser.getNextToken();
+                token.kind = 60;
+            } else if (token.image.equals("tipoVar")) {
+                token = parser.getNextToken();
+                token.kind = 59;
+            }
+
             while (token.kind != 0) {
                 tokens.add(token);
                 token = parser.getNextToken();
