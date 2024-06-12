@@ -89,24 +89,32 @@ public class Lexer {
 
     private void readAllTokens() {
         if (tokens.isEmpty()) {
-            Token token = parser.getNextToken();
-
-            if (token.image.length() > 30 && token.image.charAt(29) == '.') {
-                token.image = token.image.substring(0, 29) + token.image.substring(30);
-                token.kind = 56;
-            }
-
-            if (token.image.equals("programa")) {
-                token = parser.getNextToken();
-                token.kind = 60;
-            } else if (token.image.equals("tipoVar")) {
-                token = parser.getNextToken();
-                token.kind = 59;
-            }
-
-            while (token.kind != 0) {
-                tokens.add(token);
-                token = parser.getNextToken();
+            Token currentToken = parser.getNextToken();
+            Token previousToken = null;
+    
+            while (currentToken.kind != 0) {
+                if (currentToken.image.length() > 30 && currentToken.image.charAt(29) == '.') {
+                    currentToken.image = currentToken.image.substring(0, 29) + currentToken.image.substring(30);
+                    currentToken.kind = 56;
+                }
+    
+                if (getTokenCode(currentToken.kind).equals("INVALID")
+                        || getTokenCode(currentToken.kind).equals("EOF")) {
+                    currentToken = parser.getNextToken();
+                    continue;
+                }
+                
+                if (getTokenCode(currentToken.kind).equals("C05") && previousToken != null) {
+                    if (getTokenCode(previousToken.kind).equals("A17")) {
+                        currentToken.kind = 60;
+                    }else if (getTokenCode(previousToken.kind).equals("B05")) {
+                        currentToken.kind = 61;
+                    }
+                }
+    
+                tokens.add(currentToken);
+                previousToken = currentToken;
+                currentToken = parser.getNextToken();
             }
         }
     }

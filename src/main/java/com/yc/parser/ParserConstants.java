@@ -124,6 +124,8 @@ public interface ParserConstants {
   int C06 = 60;
   /** RegularExpression Id. */
   int C07 = 61;
+  /** RegularExpression Id. */
+  int INVALID = 62;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -192,7 +194,8 @@ public interface ParserConstants {
     "<C05>",
     "<C06>",
     "<C07>",
-    "<token of kind 62>",
+    "<INVALID>",
+    "<token of kind 63>",
   };
 
 }
