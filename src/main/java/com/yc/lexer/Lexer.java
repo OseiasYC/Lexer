@@ -104,14 +104,14 @@ public class Lexer {
                     continue;
                 }
                 
-                if (getTokenCode(currentToken.kind).equals("C05") && previousToken != null) {
-                    if (getTokenCode(previousToken.kind).equals("A17")) {
+                if (getTokenCode(currentToken.kind).equals("C05")) {
+                    if (previousToken != null && getTokenCode(previousToken.kind).equals("A17")) {
                         currentToken.kind = 60;
-                    }else if (getTokenCode(previousToken.kind).equals("B05")) {
+                    } else if (previousToken == null || !getTokenCode(previousToken.kind).equals("B05")) {
                         currentToken.kind = 61;
                     }
                 }
-    
+
                 tokens.add(currentToken);
                 previousToken = currentToken;
                 currentToken = parser.getNextToken();
