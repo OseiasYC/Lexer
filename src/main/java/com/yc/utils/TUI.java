@@ -23,9 +23,9 @@ public class TUI {
                 PINK + "    Harrison Borges dos Santos  " + RESET
                 + " | harrison.borges@ucsal.edu.br  | (71) 99290-4126\n" +
                 PINK + "    Iago Roque Ribeiro Novaes   " + RESET
-                + " | iago.roque@ucsal.edu.br       | (73) 99934-6222\n" +
+                + " | iago.novaes@ucsal.edu.br       | (73) 99934-6222\n" +
                 PINK + "    Lucas Farias da Silva       " + RESET
-                + " | lucas.farias@ucsal.edu.br     | (71) 99368-8705\n" +
+                + " | lucasfarias.silva@ucsal.edu.br     | (71) 99368-8705\n" +
                 PINK + "    Oseias Lopes da Silva       " + RESET
                 + " | oseias.silva@ucsal.edu.br     | (74) 99118-0551");
 

@@ -21,8 +21,8 @@ public class ReportsGenerator {
 
     String header = ("COMPONENTES - CÓDIGO DA EQUIPE: EQ03\n" +
             "    Harrison Borges dos Santos   | harrison.borges@ucsal.edu.br  | (71) 99290-4126\n" +
-            "    Iago Roque Ribeiro Novaes    | iago.roque@ucsal.edu.br       | (73) 99934-6222\n" +
-            "    Lucas Farias da Silva        | lucas.farias@ucsal.edu.br     | (71) 99368-8705\n" +
+            "    Iago Roque Ribeiro Novaes    | iago.novaes@ucsal.edu.br       | (73) 99934-6222\n" +
+            "    Lucas Farias da Silva        | lucasfarias.silva@ucsal.edu.br     | (71) 99368-8705\n" +
             "    Oseias Lopes da Silva        | oseias.silva@ucsal.edu.br     | (74) 99118-0551\n");
 
     public void generate(String fileName, StringBuilder content) throws NoSuchFieldException, SecurityException {
