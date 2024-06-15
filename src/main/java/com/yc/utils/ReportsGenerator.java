@@ -71,7 +71,7 @@ public class ReportsGenerator {
                 writerLEX.write(
                         String.format(
                                 "------------------------------------------------------------------------------------------\nEntrada: %s, Código: %s, Lexame: %s,\nQtdCharAntesTrunc: %s, QtdCharDepoisTrunc: %s,\nTipoSimb: %s, Linhas: %s\n",
-                                data.getEntry(), data.getCode(), data.getLexeme(), data.getNumChar(),
+                                data.getEntry(), data.getCode(), data.getLexeme().toString().toUpperCase(), data.getNumChar(),
                                 data.getNumCharTrunc(), data.getType(), data.getLines()));
             }
 
