@@ -55,12 +55,12 @@ public class Lexer {
 
         symbolTableData = getSymbolTableData();
         int i = 1;
+
         for (Token token : tokens) {
             String indexSymbolTable = "NA";
 
             for (SymbolTableData data : symbolTableData) {
-                if (data.getLexeme().equals(token.image)) {
-
+                if (getTokenCode(token.kind).startsWith("C")) {
                     indexSymbolTable = Integer.toString(i++);
                     break;
                 }
@@ -91,7 +91,7 @@ public class Lexer {
         if (tokens.isEmpty()) {
             Token currentToken = parser.getNextToken();
             Token previousToken = null;
-    
+
             while (currentToken.kind != 0) {
 
                 if (getTokenCode(currentToken.kind).equals("INVALID")
@@ -99,7 +99,7 @@ public class Lexer {
                     currentToken = parser.getNextToken();
                     continue;
                 }
-                
+
                 if (getTokenCode(currentToken.kind).equals("C05")) {
                     if (previousToken != null && getTokenCode(previousToken.kind).equals("A17")) {
                         currentToken.kind = 60;
