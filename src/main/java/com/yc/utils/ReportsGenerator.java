@@ -21,8 +21,8 @@ public class ReportsGenerator {
 
     String header = ("COMPONENTES - CÓDIGO DA EQUIPE: EQ03\n" +
             "    Harrison Borges dos Santos   | harrison.borges@ucsal.edu.br  | (71) 99290-4126\n" +
-            "    Iago Roque Ribeiro Novaes    | iago.roque@ucsal.edu.br       | (73) 99934-6222\n" +
-            "    Lucas Farias da Silva        | lucas.farias@ucsal.edu.br     | (71) 99368-8705\n" +
+            "    Iago Roque Ribeiro Novaes    | iago.novaes@ucsal.edu.br       | (73) 99934-6222\n" +
+            "    Lucas Farias da Silva        | lucasfarias.silva@ucsal.edu.br     | (71) 99368-8705\n" +
             "    Oseias Lopes da Silva        | oseias.silva@ucsal.edu.br     | (74) 99118-0551\n");
 
     public void generate(String fileName, StringBuilder content) throws NoSuchFieldException, SecurityException {
@@ -49,7 +49,7 @@ public class ReportsGenerator {
                 writerLEX.write(
                         String.format(
                                 "------------------------------------------------------------------------------------------\nLexame: %s, Código: %s, Índice na Tabela: %s, Linha: %s\n",
-                                data.getLexeme(), data.getCode(), data.getIndexSymbolTable(), data.getLine()));
+                                data.getLexeme().toString().toUpperCase(), data.getCode(), data.getIndexSymbolTable(), data.getLine()));
             }
 
             writerLEX.close();
@@ -70,9 +70,9 @@ public class ReportsGenerator {
             for (SymbolTableData data : symbolTableData) {
                 writerLEX.write(
                         String.format(
-                                "------------------------------------------------------------------------------------------\nEntrada: %s, Código: %s, Lexame: %s,\nQtdCharAntesTrunc: %s, QtdCharDepoisTrunc: %s,\nTipoSimb: TODO, Linhas: %s\n",
-                                data.getEntry(), data.getCode(), data.getLexeme(), data.getNumChar(),
-                                data.getNumCharTrunc(), data.getLines()));
+                                "------------------------------------------------------------------------------------------\nEntrada: %s, Código: %s, Lexame: %s,\nQtdCharAntesTrunc: %s, QtdCharDepoisTrunc: %s,\nTipoSimb: %s, Linhas: %s\n",
+                                data.getEntry(), data.getCode(), data.getLexeme().toString().toUpperCase(), data.getNumChar(),
+                                data.getNumCharTrunc(), data.getType(), data.getLines()));
             }
 
             writerLEX.close();

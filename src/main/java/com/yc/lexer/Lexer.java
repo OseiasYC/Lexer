@@ -2,9 +2,6 @@ package com.yc.lexer;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +37,7 @@ public class Lexer {
                     List<Integer> lines = new ArrayList<>();
                     lines.add(lineNumber);
                     symbolTableData = new SymbolTableData(entryCounter++, getTokenCode(token.kind), lexeme,
-                            lexeme.length(), "TODO", lines);
+                            lexeme.length(), lines);
                     symbolTableMap.put(lexeme, symbolTableData);
                 } else {
                     symbolTableData.getLines().add(lineNumber);
@@ -58,12 +55,12 @@ public class Lexer {
 
         symbolTableData = getSymbolTableData();
         int i = 1;
+
         for (Token token : tokens) {
             String indexSymbolTable = "NA";
 
             for (SymbolTableData data : symbolTableData) {
-                if (data.getLexeme().equals(token.image)) {
-
+                if (getTokenCode(token.kind).startsWith("C")) {
                     indexSymbolTable = Integer.toString(i++);
                     break;
                 }
@@ -92,10 +89,28 @@ public class Lexer {
 
     private void readAllTokens() {
         if (tokens.isEmpty()) {
-            Token token = parser.getNextToken();
-            while (token.kind != 0) {
-                tokens.add(token);
-                token = parser.getNextToken();
+            Token currentToken = parser.getNextToken();
+            Token previousToken = null;
+
+            while (currentToken.kind != 0) {
+
+                if (getTokenCode(currentToken.kind).equals("INVALID")
+                        || getTokenCode(currentToken.kind).equals("EOF")) {
+                    currentToken = parser.getNextToken();
+                    continue;
+                }
+
+                if (getTokenCode(currentToken.kind).equals("C05")) {
+                    if (previousToken != null && getTokenCode(previousToken.kind).equals("A17")) {
+                        currentToken.kind = 60;
+                    } else if (previousToken == null || !getTokenCode(previousToken.kind).equals("B05")) {
+                        currentToken.kind = 61;
+                    }
+                }
+
+                tokens.add(currentToken);
+                previousToken = currentToken;
+                currentToken = parser.getNextToken();
             }
         }
     }
