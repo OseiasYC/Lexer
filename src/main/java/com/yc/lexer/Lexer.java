@@ -94,15 +94,6 @@ public class Lexer {
     
             while (currentToken.kind != 0) {
 
-                if (currentToken.image.length() > 30) {
-                    if (currentToken.image.charAt(29) == '.') {
-                        currentToken.image = currentToken.image.substring(0, 29);
-                    } else {
-                        currentToken.image = currentToken.image.substring(0, 30);
-                    }
-                    currentToken.kind = 56;
-                }
-
                 if (getTokenCode(currentToken.kind).equals("INVALID")
                         || getTokenCode(currentToken.kind).equals("EOF")) {
                     currentToken = parser.getNextToken();

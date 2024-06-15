@@ -49,7 +49,7 @@ public class ReportsGenerator {
                 writerLEX.write(
                         String.format(
                                 "------------------------------------------------------------------------------------------\nLexame: %s, Código: %s, Índice na Tabela: %s, Linha: %s\n",
-                                data.getLexeme().toUpperCase(), data.getCode(), data.getIndexSymbolTable(), data.getLine()));
+                                data.getLexeme().toString().toUpperCase(), data.getCode(), data.getIndexSymbolTable(), data.getLine()));
             }
 
             writerLEX.close();

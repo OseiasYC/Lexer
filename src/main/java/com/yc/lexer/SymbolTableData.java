@@ -41,15 +41,23 @@ public class SymbolTableData {
 
     private Object truncate(Object lexeme) {
         String core = lexeme.toString();
-
-        if (lexeme instanceof String && core.startsWith("\"") && core.endsWith("\"")) {
-            core = core.substring(1, core.length() - 1);
-
-            if (core.length() > 30 - 2) {
-                core = core.substring(0, 30 - 2);
+    
+        if (lexeme instanceof String) {
+            if (core.startsWith("\"") && core.endsWith("\"")) {
+                core = core.substring(1, core.length() - 1);
+            }
+            
+            if (core.length() > 30) {
+                if (core.charAt(29) == '.') {
+                    core = core.substring(0, 29);
+                } else {
+                    core = core.substring(0, 30);
+                }
             }
 
-            return "\"" + core + "\"";
+            if (lexeme.toString().startsWith("\"") && lexeme.toString().endsWith("\"")) {
+                core = "\"" + core + "\"";
+            }
         }
 
         return core;
