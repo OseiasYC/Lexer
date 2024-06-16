@@ -13,119 +13,121 @@ public interface ParserConstants {
   /** RegularExpression Id. */
   int COMMENT = 5;
   /** RegularExpression Id. */
-  int LINE_COMMENT = 6;
+  int UNCLOSED_COMMENT = 6;
   /** RegularExpression Id. */
-  int A01 = 7;
+  int LINE_COMMENT = 7;
   /** RegularExpression Id. */
-  int A02 = 8;
+  int A01 = 8;
   /** RegularExpression Id. */
-  int A03 = 9;
+  int A02 = 9;
   /** RegularExpression Id. */
-  int A04 = 10;
+  int A03 = 10;
   /** RegularExpression Id. */
-  int A05 = 11;
+  int A04 = 11;
   /** RegularExpression Id. */
-  int A06 = 12;
+  int A05 = 12;
   /** RegularExpression Id. */
-  int A07 = 13;
+  int A06 = 13;
   /** RegularExpression Id. */
-  int A08 = 14;
+  int A07 = 14;
   /** RegularExpression Id. */
-  int A09 = 15;
+  int A08 = 15;
   /** RegularExpression Id. */
-  int A10 = 16;
+  int A09 = 16;
   /** RegularExpression Id. */
-  int A11 = 17;
+  int A10 = 17;
   /** RegularExpression Id. */
-  int A12 = 18;
+  int A11 = 18;
   /** RegularExpression Id. */
-  int A13 = 19;
+  int A12 = 19;
   /** RegularExpression Id. */
-  int A14 = 20;
+  int A13 = 20;
   /** RegularExpression Id. */
-  int A15 = 21;
+  int A14 = 21;
   /** RegularExpression Id. */
-  int A16 = 22;
+  int A15 = 22;
   /** RegularExpression Id. */
-  int A17 = 23;
+  int A16 = 23;
   /** RegularExpression Id. */
-  int A18 = 24;
+  int A17 = 24;
   /** RegularExpression Id. */
-  int A19 = 25;
+  int A18 = 25;
   /** RegularExpression Id. */
-  int A20 = 26;
+  int A19 = 26;
   /** RegularExpression Id. */
-  int A21 = 27;
+  int A20 = 27;
   /** RegularExpression Id. */
-  int A22 = 28;
+  int A21 = 28;
   /** RegularExpression Id. */
-  int A23 = 29;
+  int A22 = 29;
   /** RegularExpression Id. */
-  int A24 = 30;
+  int A23 = 30;
   /** RegularExpression Id. */
-  int A25 = 31;
+  int A24 = 31;
   /** RegularExpression Id. */
-  int A26 = 32;
+  int A25 = 32;
   /** RegularExpression Id. */
-  int B01 = 33;
+  int A26 = 33;
   /** RegularExpression Id. */
-  int B02 = 34;
+  int B01 = 34;
   /** RegularExpression Id. */
-  int B03 = 35;
+  int B02 = 35;
   /** RegularExpression Id. */
-  int B04 = 36;
+  int B03 = 36;
   /** RegularExpression Id. */
-  int B05 = 37;
+  int B04 = 37;
   /** RegularExpression Id. */
-  int B06 = 38;
+  int B05 = 38;
   /** RegularExpression Id. */
-  int B07 = 39;
+  int B06 = 39;
   /** RegularExpression Id. */
-  int B08 = 40;
+  int B07 = 40;
   /** RegularExpression Id. */
-  int B09 = 41;
+  int B08 = 41;
   /** RegularExpression Id. */
-  int B10 = 42;
+  int B09 = 42;
   /** RegularExpression Id. */
-  int B11 = 43;
+  int B10 = 43;
   /** RegularExpression Id. */
-  int B12 = 44;
+  int B11 = 44;
   /** RegularExpression Id. */
-  int B13 = 45;
+  int B12 = 45;
   /** RegularExpression Id. */
-  int B14 = 46;
+  int B13 = 46;
   /** RegularExpression Id. */
-  int B15 = 47;
+  int B14 = 47;
   /** RegularExpression Id. */
-  int B16 = 48;
+  int B15 = 48;
   /** RegularExpression Id. */
-  int B17 = 49;
+  int B16 = 49;
   /** RegularExpression Id. */
-  int B18 = 50;
+  int B17 = 50;
   /** RegularExpression Id. */
-  int B19 = 51;
+  int B18 = 51;
   /** RegularExpression Id. */
-  int B20 = 52;
+  int B19 = 52;
   /** RegularExpression Id. */
-  int B21 = 53;
+  int B20 = 53;
   /** RegularExpression Id. */
-  int B22 = 54;
+  int B21 = 54;
   /** RegularExpression Id. */
-  int C01 = 55;
+  int B22 = 55;
   /** RegularExpression Id. */
-  int C02 = 56;
+  int C01 = 56;
   /** RegularExpression Id. */
-  int C03 = 57;
+  int C02 = 57;
   /** RegularExpression Id. */
-  int C04 = 58;
+  int C03 = 58;
   /** RegularExpression Id. */
-  int C05 = 59;
+  int C04 = 59;
   /** RegularExpression Id. */
-  int C06 = 60;
+  int C05 = 60;
   /** RegularExpression Id. */
-  int C07 = 61;
+  int C06 = 61;
   /** RegularExpression Id. */
-  int INVALID = 62;
+  int C07 = 62;
+  /** RegularExpression Id. */
+  int INVALID = 63;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -138,6 +140,7 @@ public interface ParserConstants {
     "\"\\n\"",
     "\"\\r\"",
     "<COMMENT>",
+    "<UNCLOSED_COMMENT>",
     "<LINE_COMMENT>",
     "\"cadeia\"",
     "\"caracter\"",
@@ -195,7 +198,7 @@ public interface ParserConstants {
     "<C06>",
     "<C07>",
     "<INVALID>",
-    "<token of kind 63>",
+    "<token of kind 64>",
   };
 
 }
