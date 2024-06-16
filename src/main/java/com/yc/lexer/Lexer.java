@@ -104,7 +104,7 @@ public class Lexer {
                     if (previousToken != null && getTokenCode(previousToken.kind).equals("A17")) {
                         currentToken.kind = 60;
                     } else if (previousToken == null || !getTokenCode(previousToken.kind).equals("B05")) {
-                        currentToken.kind = 61;
+                        currentToken.kind = 62;
                     }
                 }
 
