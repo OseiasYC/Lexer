@@ -39,7 +39,7 @@ This project is a tool for code analysis with potential applications such as:
 * **Compilers and Interpreters:** Translating source code into executable code.
 
 ## Language Documentation and Specifications:
-[2024-1 Compiler Design Specification](https://github.com/OseiasYC/Lexer/Project2024-1%20v1.0)
+[2024-1 Compiler Design Specification](https://github.com/OseiasYC/Lexer/blob/main/Project2024-1%20v1.0.pdf)
 
 ---
 _Build with hate in the ❤ - [MIT](https://github.com/OseiasYC/Lexer/blob/main/LICENSE)._
